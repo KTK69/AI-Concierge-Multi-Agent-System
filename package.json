@@ -1,0 +1,52 @@
+{
+  "name": "ai-chatbot-temp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.59.0",
+    "@google/generative-ai": "^0.24.1",
+    "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
+    "@langchain/community": "^0.3.50",
+    "@langchain/ollama": "^0.2.3",
+    "@notionhq/client": "^2.3.0",
+    "@supabase/supabase-js": "^2.55.0",
+    "@types/ws": "^8.18.1",
+    "cheerio": "^1.1.2",
+    "date-fns": "^4.1.0",
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.23.12",
+    "langchain": "^0.3.30",
+    "next": "15.4.6",
+    "ollama": "^0.5.17",
+    "posthog-js": "^1.259.0",
+    "puppeteer-core": "^24.16.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hot-toast": "^2.5.2",
+    "replicate": "^1.0.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "twilio": "^5.8.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

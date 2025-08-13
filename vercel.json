@@ -1,0 +1,22 @@
+{
+  "name": "ai-chatbot-lead-conversion",
+  "private": false,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ai-chatbot-lead-conversion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/ai-chatbot-lead-conversion/issues"
+  },
+  "homepage": "https://github.com/your-username/ai-chatbot-lead-conversion#readme"
+}
