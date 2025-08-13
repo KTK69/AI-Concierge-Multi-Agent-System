@@ -83,9 +83,9 @@ export class AgentOrchestrator {
     } catch (error) {
       console.error('Error in orchestrator:', error);
       console.error('Error details:', {
-        name: (error as any)?.name,
-        message: (error as any)?.message,
-        stack: (error as any)?.stack?.substring(0, 500)
+        name: (error as unknown as { name?: string })?.name,
+        message: (error as unknown as { message?: string })?.message,
+        stack: (error as unknown as { stack?: string })?.stack?.substring(0, 500)
       });
       
       return {
@@ -115,9 +115,8 @@ export class AgentOrchestrator {
   }
 
   private buildPrompt(agent: string, input: string, context: ConversationContext): string {
-    const profile = context.profile || {};
-    
-    const baseContext = `You are an AI Concierge for Scaler Academy, helping professionals advance their tech careers. 
+  const profile = context.profile || {};
+  const baseContext = `You are an AI Concierge for Scaler Academy, helping professionals advance their tech careers.
 User Profile: ${profile.careerStage || 'Unknown'} level, interested in ${profile.techInterest || 'technology'}.
 Current Agent: ${agent}
 
@@ -132,27 +131,20 @@ As the ${agent} agent, provide a helpful, personalized response that:
 
 Keep responses concise but valuable (2-3 sentences max).`;
 
-    switch (agent) {
-      case 'profiler':
-        return baseContext + `
-Focus on understanding their psychological profile, learning style, and career motivations.`;
-      
-      case 'journey':
-        return baseContext + `
-Focus on creating personalized learning paths and skill development recommendations.`;
-      
-      case 'engagement':
-        return baseContext + `
-Focus on motivation, overcoming challenges, and maintaining momentum in their learning journey.`;
-      
-      case 'conversion':
-        return baseContext + `
-Focus on career advancement, interview preparation, and strategic career moves.`;
-      
-      default:
-        return baseContext;
-    }
+  switch (agent) {
+    case 'profiler':
+      return baseContext + '\nFocus on understanding their psychological profile, learning style, and career motivations.';
+    case 'journey':
+      return baseContext + '\nFocus on creating personalized learning paths and skill development recommendations.';
+    case 'engagement':
+      return baseContext + '\nFocus on motivation, overcoming challenges, and maintaining momentum in their learning journey.';
+    case 'conversion':
+      return baseContext + '\nFocus on career advancement, interview preparation, and strategic career moves.';
+    default:
+      return baseContext;
   }
+}
+
 }
 
 // Export singleton instance

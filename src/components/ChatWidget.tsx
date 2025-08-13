@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getOrchestrator } from '@/lib/agent-orchestrator';
 
 interface Message {
   id: string;
@@ -66,7 +65,7 @@ export function ChatWidget() {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  } // End of handleOnboardingResponse
 
   useEffect(() => {
     scrollToBottom();
@@ -127,8 +126,6 @@ export function ChatWidget() {
         setIsOnboarding(false);
         
         try {
-          // Initialize with orchestrator
-          const orchestrator = getOrchestrator();
           
           const completionMessage: Message = {
             id: (Date.now() + 1).toString(),
@@ -162,7 +159,7 @@ What specific career challenge would you like to tackle first?`,
         }
       }
       setIsTyping(false);
-    }, 1500);
+    })
   };
 
   const handleAgentInteraction = async (userInput: string) => {

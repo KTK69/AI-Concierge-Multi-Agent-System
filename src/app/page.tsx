@@ -261,7 +261,7 @@ export default function Home() {
             Real-Time AI Intelligence
           </h2>
           <p className="text-xl text-purple-200 max-w-3xl mx-auto">
-            Unlike static funnels, our AI Concierge adapts to each user's unique psychological profile and behavior patterns in real-time.
+            Unlike static funnels, our AI Concierge adapts to each user&apos;s unique psychological profile and behavior patterns in real-time.
           </p>
         </div>
         
@@ -337,8 +337,8 @@ export default function Home() {
             Ready to Transform Your Masterclass Success?
           </h2>
           <p className="text-xl text-purple-100 mb-12 max-w-3xl mx-auto">
-            Join thousands of professionals who've accelerated their careers with our AI Concierge system. 
-            Experience the power of hyper-personalized learning paths and predictive engagement powered by Google Gemini AI.
+              Join thousands of professionals who&apos;ve accelerated their careers with our AI Concierge system. 
+              Experience the power of hyper-personalized learning paths and predictive engagement powered by Google Gemini AI.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
