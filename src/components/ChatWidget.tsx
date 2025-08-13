@@ -10,7 +10,7 @@ interface Message {
   type: 'user' | 'assistant';
   timestamp: Date;
   agentType?: string;
-  metadata?: any;
+  metadata?: unknown;
 }
 
 interface UserProfile {
@@ -19,7 +19,7 @@ interface UserProfile {
   careerStage?: string;
   techInterest?: string;
   learningStyle?: string;
-  psychologicalProfile?: any;
+  psychologicalProfile?: unknown;
 }
 
 const ONBOARDING_QUESTIONS = [
@@ -103,7 +103,7 @@ export function ChatWidget() {
       type: 'user',
       timestamp: new Date(),
     };
-    setMessages(prev => [...prev, userMessage]);
+  setMessages((prev: Message[]) => [...prev, userMessage]);
 
     setIsTyping(true);
 
@@ -121,7 +121,7 @@ export function ChatWidget() {
           agentType: 'onboarding'
         };
         
-        setMessages(prev => [...prev, nextMessage]);
+  setMessages((prev: Message[]) => [...prev, nextMessage]);
       } else {
         // Onboarding complete - start AI agent interaction
         setIsOnboarding(false);
@@ -146,7 +146,7 @@ What specific career challenge would you like to tackle first?`,
             agentType: 'profiler'
           };
           
-          setMessages(prev => [...prev, completionMessage]);
+          setMessages((prev: Message[]) => [...prev, completionMessage]);
         } catch (error) {
           console.error('Error initializing agents:', error);
           
@@ -158,7 +158,7 @@ What specific career challenge would you like to tackle first?`,
             agentType: 'fallback'
           };
           
-          setMessages(prev => [...prev, errorMessage]);
+          setMessages((prev: Message[]) => [...prev, errorMessage]);
         }
       }
       setIsTyping(false);
@@ -173,7 +173,7 @@ What specific career challenge would you like to tackle first?`,
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+  setMessages((prev: Message[]) => [...prev, userMessage]);
     setIsTyping(true);
 
     try {
@@ -211,7 +211,7 @@ What specific career challenge would you like to tackle first?`,
         }
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+  setMessages((prev: Message[]) => [...prev, assistantMessage]);
 
       // Handle any triggers or recommendations
       if (data.triggers && data.triggers.length > 0) {
@@ -229,7 +229,7 @@ What specific career challenge would you like to tackle first?`,
         agentType: 'error'
       };
       
-      setMessages(prev => [...prev, errorMessage]);
+  setMessages((prev: Message[]) => [...prev, errorMessage]);
     }
 
     setIsTyping(false);
@@ -341,7 +341,7 @@ What specific career challenge would you like to tackle first?`,
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-purple-50/30 to-white">
-              {messages.map((message) => (
+              {messages.map((message: Message) => (
                 <motion.div
                   key={message.id}
                   initial={{ opacity: 0, y: 10 }}

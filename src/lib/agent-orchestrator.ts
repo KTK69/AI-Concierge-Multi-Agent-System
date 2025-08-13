@@ -14,9 +14,9 @@ export interface UserProfile {
   techInterest?: string;
   experience?: string;
   goals?: string[];
-  psychologicalProfile?: any;
-  engagementHistory?: any[];
-  conversionEvents?: any[];
+  psychologicalProfile?: unknown;
+  engagementHistory?: unknown[];
+  conversionEvents?: unknown[];
   createdAt?: string;
   updatedAt?: string;
 }
@@ -25,22 +25,22 @@ export interface ConversationContext {
   userId: string;
   sessionId?: string;
   profile?: UserProfile;
-  conversationHistory?: any[];
-  sessionMetadata?: any;
+  conversationHistory?: unknown[];
+  sessionMetadata?: unknown;
 }
 
 export interface AgentResponse {
   response: string;
   primaryAgent: string;
   confidence: number;
-  triggers: any[];
-  recommendations: any[];
-  metadata?: any;
+  triggers: unknown[];
+  recommendations: unknown[];
+  metadata?: unknown;
 }
 
 // Agent Orchestrator with Gemini AI
 export class AgentOrchestrator {
-  private supabase: any;
+  private supabase: unknown;
   private gemini: GoogleGenerativeAI;
 
   constructor() {
